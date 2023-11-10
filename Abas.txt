@@ -1,0 +1,67 @@
+Abas
+<div class="container">
+            
+              <form action="/index/register" method="post" class="php-email-form p-3 p-md-4">
+                <%- include('../partials/flash') %> 
+                <div class="text-center"><h2>Student Registration</h2></div>
+                  <div class="row" id='input-cont'>
+                    <div class="col-xl-6 form-group">
+                      <input type="text" name="fname" class="form-control" id="fname" placeholder="First Name" required>
+                    </div>
+                    <div class="col-xl-6 form-group">
+                      <input type="text" name="lname" class="form-control" id="lname" placeholder="Last Name" required>
+                    </div>
+                    <div class="col-xl-6 form-group">
+                      <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
+                    </div>
+                    <div class="col-xl-6 form-group">
+                      <input type="text" class="form-control" name="reg" id="reg" placeholder="Reg Number" required>
+                    </div>
+                    <div class="col-xl-6 form-group">
+                      <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject 1" required>
+                    </div>
+                    <div class="col-xl-6 form-group">
+                      <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject 2" required>
+                    </div>
+                  </div>
+                  <div class="text-center" style="gap: 10px;"><button type="button" onclick='addInput()'>+Add input</button><button type="submit" value="submit">Submit</button</div><button type="button" class="buttons" data-modal="modalOne">Finger Print</button></div>
+              </form>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+            const container = document.getElementById('input-cont');
+            var inputCount = 0;
+            var sub = 3;
+            
+            // Call addInput() function on button click
+            const row = document.querySelector('.row')
+            function addInput(){
+                inputCount++; // Increment input count by one
+                if(inputCount>3){
+                    alert('Max Input allowed is 5');
+                    return;
+                }
+                let div = document.createElement('div');
+                div.classList = 'col-xl-6 form-group'
+                container.appendChild(div);
+                let input = document.createElement('input');
+                input.placeholder = `Subject ${sub++}`;
+                input.classList = 'form-control'
+                input.required
+                input.name = 'subject'
+                input.type = 'text'
+                div.appendChild(input);
+            }
+            
+        </script>
